@@ -43,9 +43,9 @@ public class WordTest {
   }
 
   @Test
-  public void clearWords_emptiesAllWordsFromArrayList() {
+  public void clear_emptiesAllWordsFromArrayList() {
     Word firstWord = new Word("reify");
-    Word.clearWords();
+    Word.clear();
     assertEquals(Word.all().size(), 0);
   }
 }

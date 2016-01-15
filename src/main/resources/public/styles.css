@@ -21,11 +21,25 @@ h2 {
     }
 p, label, table {
     font-family: 'Roboto', sans-serif;
-    font-size: 15px;
+    font-size: 20px;
     line-height: 23px;
     margin: 0 0 23px 0;
     }
 
 .btn {
   margin: 10px 0;
+}
+
+table {
+    counter-reset: rowNumber;
+}
+
+tbody tr {
+    counter-increment: rowNumber;
+}
+
+table tr td:first-child::before {
+    content: counter(rowNumber);
+    min-width: 1em;
+    margin-right: 0.5em;
 }

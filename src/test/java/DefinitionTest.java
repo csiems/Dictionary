@@ -25,27 +25,9 @@ public class DefinitionTest {
   }
 
   @Test
-  public void newId_wordsInstantiateWithAnID_true() {
-    Definition myDefinition = new Definition("to regard as a concrete thing");
-    assertEquals(Definition.all().size(), myDefinition.getId());
-  }
-
-  @Test
-  public void find_returnsDefinitionWithSameId_secondDefinition() {
+  public void clear_emptiesAllDefinitionsFromArrayList() {
     Definition firstDefinition = new Definition("to regard as a concrete thing");
-    Definition secondDefinition = new Definition("make (something abstract) more concrete or real.");
-    assertEquals(Definition.find(secondDefinition.getId()), secondDefinition);
-  }
-
-  @Test
-  public void find_returnsNullWhenNoDefinitionFound_null() {
-    assertTrue(Definition.find(999) == null);
-  }
-
-  @Test
-  public void clearDefinitions_emptiesAllDefinitionsFromArrayList() {
-    Definition firstDefinition = new Definition("to regard as a concrete thing");
-    Definition.clearDefinitions();
+    Definition.clear();
     assertEquals(Definition.all().size(), 0);
   }
 }

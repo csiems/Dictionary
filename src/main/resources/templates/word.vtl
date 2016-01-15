@@ -1,0 +1,20 @@
+#if ($word)
+  <h1>$word.getWord()</h1>
+
+  <table class="table table-hover">
+    <tbody>
+        #foreach ($definition in $word.getAllDefinitions())
+            <tr>
+              <td>$definition.getDefinition()</td>
+            </tr>
+        #end
+    </tbody>
+  </table>
+  <br>
+#else
+  <h1> Task not found </h1>
+#end
+
+<a href="/index/$word.getId()/new-definition">Add a new definition</a>
+<a href="/">View All Words</a>
+<a href="/index/new-word">Add A New Word</a>
