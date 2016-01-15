@@ -5,7 +5,7 @@
     <tbody>
         #foreach ($definition in $word.getAllDefinitions())
             <tr>
-              <td>$definition.getDefinition()</td>
+              <td><a href="/index/$word.getId()">$definition.getDefinition()</a></td>
             </tr>
         #end
     </tbody>
