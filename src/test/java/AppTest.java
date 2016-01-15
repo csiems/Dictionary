@@ -21,21 +21,21 @@ public class AppTest extends FluentTest {
   @ClassRule
   public static ServerRule server = new ServerRule();
 
-  @Test
-    public void rootTest() {
-      goTo("http://localhost:4567/");
-      assertThat(pageSource()).contains("Address Book");
-    }
-
-  @Test
-    public void contactIsCreatedTest() {
-    goTo("http://localhost:4567/");
-    click("a", withText ("Add A New Contact"));
-    fill("#firstName").with("David");
-    fill("#secondName").with("Bowie");
-    submit(".btn");
-    assertThat(pageSource()).contains("Your Contact has been saved.");
-  }
+  // @Test
+  //   public void rootTest() {
+  //     goTo("http://localhost:4567/");
+  //     assertThat(pageSource()).contains("Address Book");
+  //   }
+  //
+  // @Test
+  //   public void contactIsCreatedTest() {
+  //   goTo("http://localhost:4567/");
+  //   click("a", withText ("Add A New Contact"));
+  //   fill("#firstName").with("David");
+  //   fill("#secondName").with("Bowie");
+  //   submit(".btn");
+  //   assertThat(pageSource()).contains("Your Contact has been saved.");
+  // }
 
 
 }

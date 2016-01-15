@@ -1,6 +1,5 @@
 import java.lang.*;
 import java.util.HashMap;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
@@ -8,17 +7,15 @@ import static spark.Spark.*;
 
 public class App {
   public static void main(String[] args) {
-    staticFileLocation("/public");
-    String layout = "templates/layout.vtl";
+    // staticFileLocation("/public");
+    // String layout = "templates/layout.vtl";
+    //
+    // get("/", (request, response) -> {
+    //   HashMap<String, Object> model = new HashMap<String, Object>();
+    //   model.put("contacts", Contact.all());
+    //   model.put("template", "templates/index.vtl");
+    //   return new ModelAndView(model, layout);
+    // }, new VelocityTemplateEngine());
 
-    get("/", (request, response) -> {
-      HashMap<String, Object> model = new HashMap<String, Object>();
-      model.put("contacts", Contact.all());
-      model.put("template", "templates/index.vtl");
-      return new ModelAndView(model, layout);
-    }, new VelocityTemplateEngine());
-
-    
-
-
+  }
 }
