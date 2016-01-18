@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Word{
+public class Word implements Comparable{
   private static ArrayList<Word> wordInstances = new ArrayList<Word>();
   private String mWord;
   private ArrayList<Definition> mDefinitions = new ArrayList<Definition>();
@@ -10,6 +10,19 @@ public class Word{
     mWord = word;
     wordInstances.add(this);
     mId = wordInstances.size();
+  }
+
+  @Override
+  public int compareTo(Object obj) {
+    Word other = (Word) obj;
+    if (equals(other)) {
+      return 0;
+    }
+    int wordCmp = mWord.compareTo(other.mWord);
+    // if (wordCmp == 0) {
+    //   return mType.compareTo(other.mType);
+    // }
+    return wordCmp;
   }
 
   public String getWord() {

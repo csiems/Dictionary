@@ -1,6 +1,7 @@
 import java.lang.*;
-import java.util.HashMap;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
 import static spark.Spark.*;
@@ -27,6 +28,7 @@ public class App {
       HashMap<String, Object> model = new HashMap<String, Object>();
       String newWord = request.queryParams("newWord");
       Word word = new Word(newWord);
+      Collections.sort(Word.all());
       model.put("words", Word.all());
       model.put("template", "templates/index.vtl");
       return new ModelAndView(model, layout);
