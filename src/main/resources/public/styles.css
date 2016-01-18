@@ -1,6 +1,5 @@
-body {
+.container {
   max-width: 768px;
-
 }
 
 h1 {
@@ -32,6 +31,8 @@ p, a, label, table {
 a {
   font-weight: bold;
   text-align: center;
+  width: 100px;
+  margin: 0 5px;
 }
 
 .btn {
