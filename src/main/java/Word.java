@@ -1,6 +1,7 @@
 import java.util.ArrayList;
+import java.util.NoSuchElementException;
 
-public class Word implements Comparable{
+public class Word implements Comparable<Word>{
   private static ArrayList<Word> wordInstances = new ArrayList<Word>();
   private String mWord;
   private ArrayList<Definition> mDefinitions = new ArrayList<Definition>();
@@ -13,16 +14,12 @@ public class Word implements Comparable{
   }
 
   @Override
-  public int compareTo(Object obj) {
-    Word other = (Word) obj;
+  public int compareTo(Word other) {
     if (equals(other)) {
       return 0;
     }
-    int wordCmp = mWord.compareTo(other.mWord);
-    // if (wordCmp == 0) {
-    //   return mType.compareTo(other.mType);
-    // }
-    return wordCmp;
+
+    return mWord.compareTo(other.mWord);
   }
 
   public String getWord() {
@@ -46,11 +43,12 @@ public class Word implements Comparable{
   }
 
   public static Word find(int id) {
-    try {
-      return wordInstances.get(id - 1);
-    } catch (IndexOutOfBoundsException oob) {
-      return null;
+    for(Word word : wordInstances) {
+      if(id == word.getId()) {
+        return word;
+      }
     }
+    throw new NoSuchElementException();
   }
 
   public static void clear() {
